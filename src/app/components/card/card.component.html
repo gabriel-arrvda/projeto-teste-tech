@@ -1,7 +1,8 @@
-<ion-card class="bg-no-repeat bg-cover bg-center w-full h-[16vh] flex rounded-3xl"
-  [style.--background]="'url('+'./assets/imgs/liftweight.jpg'+')'">
-  <ion-card-header>
-    <ion-card-title class="text-base font-medium" color="light">LEVANTAMENTO DE PESO</ion-card-title>
-    <ion-card-subtitle class="normal-case font-light text-xs" color="primary">continuar treinando</ion-card-subtitle>
+<ion-card class="bg-no-repeat bg-cover bg-center w-full h-[16vh] rounded-3xl"
+  [style.--background]="'url('+exercise?.image+')'">
+  <ion-card-header class="flex flex-col items-start justify-end">
+    <ion-card-subtitle *ngIf="exercise.inProgress" class="normal-case font-light text-xs" color="primary">continuar
+      treinando</ion-card-subtitle>
+    <ion-card-title class="text-base font-medium" color="light">{{exercise?.name | uppercase}}</ion-card-title>
   </ion-card-header>
 </ion-card>

@@ -15,4 +15,26 @@ register();
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePage {
+  exercises = [
+    {
+      name: 'Levantamento de Peso',
+      image: './assets/imgs/liftweight.jpg',
+      inProgress: true,
+    },
+    {
+      name: 'Yoga Express',
+      image: './assets/imgs/yoga.jpg',
+      inProgress: false,
+    },
+    {
+      name: 'Levantamento de Peso',
+      image: './assets/imgs/liftweight.jpg',
+      inProgress: true,
+    },
+    {
+      name: 'Yoga Express',
+      image: './assets/imgs/yoga.jpg',
+      inProgress: false,
+    },
+  ]
 }

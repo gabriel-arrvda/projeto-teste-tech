@@ -1,37 +1,99 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar [style.--background]="'#202020'">
+    <ion-title class="ion-text-center">
+      <ion-img class="h-[6vh]" src="./assets/imgs/usina_play.png"></ion-img>
+    </ion-title>
+
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="light" auto-hide="false"></ion-menu-button>
     </ion-buttons>
-    <ion-title></ion-title>
+
+    <ion-buttons slot="end" class="pr-2">
+      <div
+        class="bg-black w-7 h-7 rounded-full drop-shadow-md cursor-pointer flex items-center justify-center relative">
+        <ion-icon class="text-sm" color="primary" name="notifications"></ion-icon>
+        <div class="bg-emerald-400 w-2 h-2 rounded-full absolute top-0 right-0"></div>
+      </div>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large"></ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div
+    class="bg-[#202020] w-full rounded-b-[50px] flex flex-col justify-between items-center pb-2 pt-2 gap-4 shadow-md">
+    <div class="w-full flex flex-row justify-start items-center px-8 gap-4">
+      <div class="w-16 h-16 rounded-full bg-center bg-cover bg-no-repeat"
+        style="background-image: url('./assets/imgs/profile.jpg');"></div>
+      <div class="flex flex-col justify-center items-start">
+        <h1 class="text-white text-lg">Leonardo Santos</h1>
+        <h2 class="text-violet-600 text-xs font-light">Nível Roxo</h2>
+      </div>
+    </div>
 
-  <div class="mb-16">
-    <h1 class="mb-2 text-2xl">PERSONAL ONLINE</h1>
-    <swiper-container [slidesPerView]="1.5" [freeMode]="true" [spaceBetween]="15">
-      <swiper-slide *ngFor="let i of [].constructor(10)"><app-card></app-card></swiper-slide>
-    </swiper-container>
+    <div class="w-auto py-2 px-4 bg-[#161616] rounded-full flex flex-row justify-between items-center gap-3 shadow-md">
+      <div class="flex flex-row justify-between items-center gap-1">
+        <div
+          class="w-5 h-5 border-primary border border-solid rounded-full cursor-pointer flex items-center justify-center">
+          <ion-icon class="text-xs" color="primary" name="accessibility"></ion-icon>
+        </div>
+        <span class="text-primary text-xs font-light">MEU CORPO</span>
+      </div>
+      <div class="flex flex-row justify-between items-center gap-1">
+        <div
+          class="w-5 h-5 border-primary border border-solid rounded-full cursor-pointer flex items-center justify-center">
+          <ion-icon class="text-xs" color="primary" name="trophy"></ion-icon>
+        </div>
+        <span class="text-primary text-xs font-light">OBJETIVOS E CONQUISTAS</span>
+      </div>
+    </div>
   </div>
 
-  <div class="mb-16">
-    <h1 class="mb-2 text-2xl">PROGRAMAS</h1>
-    <swiper-container [slidesPerView]="1.5" [freeMode]="true" [spaceBetween]="15">
-      <swiper-slide *ngFor="let i of [].constructor(10)"><app-card></app-card></swiper-slide>
-    </swiper-container>
-  </div>
+  <div class="pl-8 w-full flex flex-col items-start gap-8 mt-5">
+    <div class="w-full">
+      <div class="flex flex-row items-center gap-2 mb-2">
+        <h1 class="text-2xl">PERSONAL ONLINE</h1>
+        <div
+          class="w-5 h-5 border-primary border border-solid rounded-full cursor-pointer flex items-center justify-center">
+          <ion-icon class="text-xs" color="primary" name="add-outline"></ion-icon>
+        </div>
+      </div>
+      <swiper-container [slidesPerView]="1.5" [freeMode]="true" [spaceBetween]="15">
+        <swiper-slide>
+          <ion-card class="bg-no-repeat bg-cover bg-center w-full h-[16vh] rounded-3xl"
+            [style.--background]="'url('+'./assets/imgs/liftweight.jpg'+')'">
+            <ion-card-header class="flex items-center justify-center">
+              <div class="w-2/3 flex flex-row items-center justify-center gap-2">
+                <div
+                  class="w-10 h-10 border-white border border-solid rounded-full cursor-pointer flex items-center justify-center">
+                  <ion-icon class="text-xl" color="light" name="add-outline"></ion-icon>
+                </div>
+                <ion-card-title class="text-base font-medium" color="light">NOVO TREINO</ion-card-title>
+              </div>
+            </ion-card-header>
+          </ion-card>
+        </swiper-slide>
+        <swiper-slide *ngFor="let exercise of exercises"><app-card [exercise]="exercise"></app-card></swiper-slide>
+      </swiper-container>
+    </div>
 
-  <div class="mb-16">
-    <h1 class="mb-2 text-2xl">CONTEÚDOS</h1>
-    <swiper-container [slidesPerView]="1.5" [freeMode]="true" [spaceBetween]="15">
-      <swiper-slide *ngFor="let i of [].constructor(10)"><app-card></app-card></swiper-slide>
-    </swiper-container>
+    <div class="w-full">
+      <h1 class="mb-2 text-2xl flex flex-row items-start gap-1">PROGRAMAS <ion-chip
+          class="h-3 shadow-primary shadow-sm">NOVO</ion-chip></h1>
+      <swiper-container [slidesPerView]="1.5" [freeMode]="true" [spaceBetween]="15">
+        <swiper-slide *ngFor="let exercise of exercises"><app-card [exercise]="exercise"></app-card></swiper-slide>
+      </swiper-container>
+    </div>
+
+    <div class="w-full">
+      <h1 class="mb-2 text-2xl">CONTEÚDOS</h1>
+      <swiper-container [slidesPerView]="1.5" [freeMode]="true" [spaceBetween]="15">
+        <swiper-slide *ngFor="let exercise of exercises">
+          <ion-card
+            class="border border-[#202020] bg-transparent w-full h-[16vh] rounded-3xl flex flex-col justify-center items-start pl-6">
+            <div class="bg-primary w-14 h-14 rounded-xl"></div>
+          </ion-card>
+        </swiper-slide>
+      </swiper-container>
+    </div>
   </div>
 </ion-content>
